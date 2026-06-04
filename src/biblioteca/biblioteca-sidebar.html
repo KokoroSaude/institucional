@@ -1,0 +1,37 @@
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-brand">
+    <span class="sb-logo">Kokoro</span>
+    <span class="sb-sub">Biblioteca de Mensagens</span>
+  </div>
+
+  <div class="sb-tone-picker">
+    <div class="sb-tone-label">Tom de voz ativo</div>
+    <button class="tone-btn active" data-tone="acolhedor" onclick="setTone('acolhedor')">
+      <span class="tone-dot acolhedor"></span> Acolhedor
+    </button>
+    <button class="tone-btn" data-tone="motivacional" onclick="setTone('motivacional')">
+      <span class="tone-dot motivacional"></span> Motivacional
+    </button>
+    <button class="tone-btn" data-tone="direto" onclick="setTone('direto')">
+      <span class="tone-dot direto"></span> Direto
+    </button>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-nav-label">Etapas</div>
+    <button class="nav-item" onclick="bibliotecaScrollTo('intro')"><span class="nav-num">—</span> Introdução</button>
+    <button class="nav-item" onclick="bibliotecaScrollTo('onboarding')"><span class="nav-num">01</span> Onboarding</button>
+    <button class="nav-item" onclick="bibliotecaScrollTo('lembrete')"><span class="nav-num">02</span> Lembretes</button>
+    <button class="nav-item" onclick="bibliotecaScrollTo('lembrete_multi')"><span class="nav-num">02b</span> Múltiplos medic.</button>
+    <button class="nav-item" onclick="bibliotecaScrollTo('followup')"><span class="nav-num">03</span> Follow-up</button>
+    <button class="nav-item" onclick="bibliotecaScrollTo('reengajamento')"><span class="nav-num">04</span> Reengajamento</button>
+    <button class="nav-item" onclick="bibliotecaScrollTo('marcos')"><span class="nav-num">05</span> Marcos D7/D14/D30</button>
+    <button class="nav-item" onclick="bibliotecaScrollTo('pausa')"><span class="nav-num">06</span> Pausa e Retomada</button>
+    <button class="nav-item" onclick="bibliotecaScrollTo('optout')"><span class="nav-num">07</span> Opt-out</button>
+  </nav>
+
+  <div class="sb-footer">
+    <div class="sb-footer-note">Baseado em Nudge<br>Thaler &amp; Sunstein</div>
+  </div>
+</aside>

@@ -1,0 +1,44 @@
+# Dependências e build
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Vercel (link local do projeto)
+.vercel/
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# TypeScript / Vite cache
+*.tsbuildinfo
+.vite/
+
+# Testes e cobertura
+coverage/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores e IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# Cursor (metadados locais do workspace)
+.cursor/

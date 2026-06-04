@@ -1,0 +1,349 @@
+<main class="main">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="tb-left">
+      <span class="tb-section">Kokoro</span>
+      <span class="tb-sep">›</span>
+      <span class="tb-title" id="tb-section-title">Biblioteca de Mensagens</span>
+    </div>
+    <span class="tone-badge acolhedor" id="active-tone-badge">💚 Acolhedor</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero reveal" id="intro">
+    <div class="hero-eyebrow">Baseado em Nudge — Thaler &amp; Sunstein</div>
+    <h1>Biblioteca de<br><em>Mensagens</em></h1>
+    <p class="hero-desc">Todas as mensagens da jornada do paciente, em 3 tons de voz. Use o seletor lateral para alternar entre os tons e copiar cada mensagem com um clique.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">7</span><span class="stat-l">Etapas</span></div>
+      <div class="stat"><span class="stat-n">3</span><span class="stat-l">Tons de voz</span></div>
+      <div class="stat"><span class="stat-n">50+</span><span class="stat-l">Mensagens</span></div>
+      <div class="stat"><span class="stat-n">6</span><span class="stat-l">Princípios Nudge</span></div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="how-section reveal">
+    <div class="section-label">Como usar</div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-dot" style="background:#4caf80"></div>
+        <div class="how-title">Acolhedor e Empático</div>
+        <div class="how-desc">Para farmácias de manipulação, clínicas e contextos de cuidado próximo. Cálido, pessoal e humanizado.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-dot" style="background:#f0b429"></div>
+        <div class="how-title">Levemente Motivacional</div>
+        <div class="how-desc">Para saúde corporativa e operadoras. Encorajador, positivo e orientado a metas.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-dot" style="background:#4a90c8"></div>
+        <div class="how-title">Neutro e Direto</div>
+        <div class="how-desc">Para redes de farmácias. Objetivo, sem excesso de emoção. Profissional e eficiente.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VARS -->
+  <section class="vars-section reveal">
+    <div class="section-label">Variáveis dinâmicas</div>
+    <p class="vars-edit-hint">Para testar as mensagens, clique em <strong>Personalizar variáveis</strong> na barra lateral (no celular, no topo da página). A tabela abaixo é só referência.</p>
+    <table class="vars-table">
+      <thead><tr><th>Variável</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr><td><code class="var-code">{nome}</code></td><td class="var-desc">Nome do paciente</td></tr>
+        <tr><td><code class="var-code">{medicamento}</code></td><td class="var-desc">Nome do medicamento (rotina simples)</td></tr>
+        <tr><td><code class="var-code">{medicamento_1} / {medicamento_2}</code></td><td class="var-desc">Múltiplos medicamentos na rotina</td></tr>
+        <tr><td><code class="var-code">{horário}</code></td><td class="var-desc">Horário configurado na rotina</td></tr>
+        <tr><td><code class="var-code">{n_dias}</code></td><td class="var-desc">Número de dias sem check-in</td></tr>
+        <tr><td><code class="var-code">{n_tomados} / {n_total}</code></td><td class="var-desc">Medicamentos tomados vs. total do dia</td></tr>
+        <tr><td><code class="var-code">{data}</code></td><td class="var-desc">Data de retomada da pausa</td></tr>
+        <tr><td><code class="var-code">{pct}</code></td><td class="var-desc">Percentual de pacientes (normas sociais)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══ ETAPAS ═══ -->
+
+  <!-- 01 ONBOARDING -->
+  <section class="etapa-section reveal" id="onboarding">
+    <div class="etapa-header">
+      <div class="etapa-num">Etapa 01</div>
+      <div class="etapa-title">Onboarding</div>
+      <div class="etapa-sub">Boas-vindas, consentimento e cadastro da rotina medicamentosa</div>
+      <span class="nudge-tag">⟶ Simplificação radical + feedback imediato de progresso</span>
+    </div>
+    <div class="tone-blocks">
+
+      <div class="tone-block">
+        <div class="tone-block-header">
+          <div class="tone-stripe acolhedor"></div>
+          <div class="tone-block-title">
+            <div class="tone-block-name">💚 Acolhedor e Empático</div>
+            <div class="tone-block-desc">Farmácias de manipulação, clínicas, cuidado próximo</div>
+          </div>
+        </div>
+        <div class="msgs-grid tone-content visible" data-tone="acolhedor">
+          <div class="msg-row"><div class="msg-label">Boas-vindas</div><div class="msg-content"><div class="bubble acolhedor">Oi, {nome}! 💚 Sou a Kokoro, sua companheira de saúde no WhatsApp. Estou aqui para te ajudar a não esquecer os seus medicamentos. Vamos começar? Responda SIM para continuar.</div><button class="copy-btn" onclick="copy(this,'Oi, {nome}! 💚 Sou a Kokoro, sua companheira de saúde no WhatsApp. Estou aqui para te ajudar a não esquecer os seus medicamentos. Vamos começar? Responda SIM para continuar.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Consentimento</div><div class="msg-content"><div class="bubble acolhedor">Para te enviar lembretes, preciso da sua autorização. Você concorda em receber mensagens minhas aqui pelo WhatsApp? Responda SIM para aceitar ou NÃO para cancelar.</div><button class="copy-btn" onclick="copy(this,'Para te enviar lembretes, preciso da sua autorização. Você concorda em receber mensagens minhas aqui pelo WhatsApp? Responda SIM para aceitar ou NÃO para cancelar.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Pedir rotina</div><div class="msg-content"><div class="bubble acolhedor">Ótimo, {nome}! 😊 Qual medicamento você toma e em que horário? Me conta no formato: "Metformina às 8h". Se tiver mais de um, manda um de cada vez.</div><button class="copy-btn" onclick="copy(this,'Ótimo, {nome}! 😊 Qual medicamento você toma e em que horário? Me conta no formato: &quot;Metformina às 8h&quot;. Se tiver mais de um, manda um de cada vez.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Confirmar</div><div class="msg-content"><div class="bubble acolhedor">Perfeito! Vou te lembrar do {medicamento} às {horário} todo dia. Está certo isso? Responda SIM para confirmar.</div><button class="copy-btn" onclick="copy(this,'Perfeito! Vou te lembrar do {medicamento} às {horário} todo dia. Está certo isso? Responda SIM para confirmar.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Concluído</div><div class="msg-content"><div class="bubble acolhedor">Tudo pronto, {nome}! 🎉 A partir de amanhã você vai receber seus lembretes no horário combinado. Qualquer coisa, é só me chamar. Cuide-se! 💚</div><button class="copy-btn" onclick="copy(this,'Tudo pronto, {nome}! 🎉 A partir de amanhã você vai receber seus lembretes no horário combinado. Qualquer coisa, é só me chamar. Cuide-se! 💚')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="motivacional">
+          <div class="msg-row"><div class="msg-label">Boas-vindas</div><div class="msg-content"><div class="bubble motivacional">Olá, {nome}! Sou a Kokoro — estou aqui para te ajudar a construir o hábito de tomar seus medicamentos em dia. Pronto para começar? Responda SIM.</div><button class="copy-btn" onclick="copy(this,'Olá, {nome}! Sou a Kokoro — estou aqui para te ajudar a construir o hábito de tomar seus medicamentos em dia. Pronto para começar? Responda SIM.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Consentimento</div><div class="msg-content"><div class="bubble motivacional">Para enviar seus lembretes, preciso da sua autorização. Você aceita receber mensagens aqui pelo WhatsApp? SIM para aceitar ou NÃO para cancelar.</div><button class="copy-btn" onclick="copy(this,'Para enviar seus lembretes, preciso da sua autorização. Você aceita receber mensagens aqui pelo WhatsApp? SIM para aceitar ou NÃO para cancelar.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Pedir rotina</div><div class="msg-content"><div class="bubble motivacional">Boa escolha, {nome}! Qual medicamento você toma e em que horário? Ex: "Metformina às 8h". Se tiver mais de um, manda um por vez.</div><button class="copy-btn" onclick="copy(this,'Boa escolha, {nome}! Qual medicamento você toma e em que horário? Ex: &quot;Metformina às 8h&quot;. Se tiver mais de um, manda um por vez.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Confirmar</div><div class="msg-content"><div class="bubble motivacional">Certo! Lembrete do {medicamento} às {horário} todo dia. Confirma? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Certo! Lembrete do {medicamento} às {horário} todo dia. Confirma? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Concluído</div><div class="msg-content"><div class="bubble motivacional">Missão iniciada, {nome}! 🎯 Seus lembretes começam amanhã. Vamos construir uma sequência incrível juntos!</div><button class="copy-btn" onclick="copy(this,'Missão iniciada, {nome}! 🎯 Seus lembretes começam amanhã. Vamos construir uma sequência incrível juntos!')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="direto">
+          <div class="msg-row"><div class="msg-label">Boas-vindas</div><div class="msg-content"><div class="bubble direto">Olá, {nome}. Sou a Kokoro. Vou te enviar lembretes dos seus medicamentos pelo WhatsApp. Para continuar, responda SIM.</div><button class="copy-btn" onclick="copy(this,'Olá, {nome}. Sou a Kokoro. Vou te enviar lembretes dos seus medicamentos pelo WhatsApp. Para continuar, responda SIM.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Consentimento</div><div class="msg-content"><div class="bubble direto">Para receber lembretes, confirme sua autorização respondendo SIM. Para cancelar, responda NÃO.</div><button class="copy-btn" onclick="copy(this,'Para receber lembretes, confirme sua autorização respondendo SIM. Para cancelar, responda NÃO.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Pedir rotina</div><div class="msg-content"><div class="bubble direto">Qual medicamento você toma e em que horário? Exemplo: Metformina às 8h. Um medicamento por mensagem.</div><button class="copy-btn" onclick="copy(this,'Qual medicamento você toma e em que horário? Exemplo: Metformina às 8h. Um medicamento por mensagem.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Confirmar</div><div class="msg-content"><div class="bubble direto">Lembrete: {medicamento} às {horário} diariamente. Confirma? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Lembrete: {medicamento} às {horário} diariamente. Confirma? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Concluído</div><div class="msg-content"><div class="bubble direto">Cadastro concluído, {nome}. Seus lembretes começam amanhã.</div><button class="copy-btn" onclick="copy(this,'Cadastro concluído, {nome}. Seus lembretes começam amanhã.')">⎘ copiar</button></div></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="warn-box"><span class="warn-icon">⚠️</span><span>Consentimento explícito é obrigação legal (LGPD). Nunca pule essa etapa — mesmo no MVP com pacientes piloto.</span></div>
+  </section>
+
+  <!-- 02 LEMBRETE SIMPLES -->
+  <section class="etapa-section reveal" id="lembrete">
+    <div class="etapa-header">
+      <div class="etapa-num">Etapa 02</div>
+      <div class="etapa-title">Lembretes Diários</div>
+      <div class="etapa-sub">1 medicamento / 1 horário por mensagem</div>
+      <span class="nudge-tag">⟶ Simplificação radical (SIM/NÃO) + sinal emocional imediato</span>
+    </div>
+    <div class="tone-blocks">
+      <div class="tone-block">
+        <div class="tone-block-header"><div class="tone-stripe acolhedor"></div><div class="tone-block-title"><div class="tone-block-name">💚 Acolhedor</div><div class="tone-block-desc">Farmácias de manipulação, clínicas</div></div></div>
+        <div class="msgs-grid tone-content visible" data-tone="acolhedor">
+          <div class="msg-row"><div class="msg-label">Manhã</div><div class="msg-content"><div class="bubble acolhedor">Bom dia, {nome}! ☀️ Hora do {medicamento}. Conseguiu tomar? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Bom dia, {nome}! ☀️ Hora do {medicamento}. Conseguiu tomar? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Tarde</div><div class="msg-content"><div class="bubble acolhedor">Boa tarde, {nome}! 💊 Hora do {medicamento}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Boa tarde, {nome}! 💊 Hora do {medicamento}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Noite</div><div class="msg-content"><div class="bubble acolhedor">Boa noite, {nome}! 🌙 Hora do {medicamento}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Boa noite, {nome}! 🌙 Hora do {medicamento}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">✓ Confirmação</div><div class="msg-content"><div class="bubble acolhedor">Ótimo! 💚 Registrado.</div><button class="copy-btn" onclick="copy(this,'Ótimo! 💚 Registrado.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">✗ Não tomou</div><div class="msg-content"><div class="bubble acolhedor">Tudo bem, {nome}. Tenta tomar assim que puder, tá? 🤍</div><button class="copy-btn" onclick="copy(this,'Tudo bem, {nome}. Tenta tomar assim que puder, tá? 🤍')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="motivacional">
+          <div class="msg-row"><div class="msg-label">Manhã</div><div class="msg-content"><div class="bubble motivacional">Bom dia, {nome}! 🌅 {medicamento} no horário! Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Bom dia, {nome}! 🌅 {medicamento} no horário! Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Tarde</div><div class="msg-content"><div class="bubble motivacional">Ei, {nome}! Hora do {medicamento}. Conseguiu? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Ei, {nome}! Hora do {medicamento}. Conseguiu? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Noite</div><div class="msg-content"><div class="bubble motivacional">{nome}, último check do dia! {medicamento} tomado? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'{nome}, último check do dia! {medicamento} tomado? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">✓ Confirmação</div><div class="msg-content"><div class="bubble motivacional">Perfeito! 🎯 Mais um dia na sequência!</div><button class="copy-btn" onclick="copy(this,'Perfeito! 🎯 Mais um dia na sequência!')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">✗ Não tomou</div><div class="msg-content"><div class="bubble motivacional">Acontece! Toma assim que lembrar. Amanhã é novo dia. 💪</div><button class="copy-btn" onclick="copy(this,'Acontece! Toma assim que lembrar. Amanhã é novo dia. 💪')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="direto">
+          <div class="msg-row"><div class="msg-label">Manhã</div><div class="msg-content"><div class="bubble direto">{nome}, lembrete: {medicamento}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'{nome}, lembrete: {medicamento}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Tarde</div><div class="msg-content"><div class="bubble direto">Lembrete: {medicamento}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Lembrete: {medicamento}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Noite</div><div class="msg-content"><div class="bubble direto">Lembrete noturno: {medicamento}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Lembrete noturno: {medicamento}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">✓ Confirmação</div><div class="msg-content"><div class="bubble direto">Registrado.</div><button class="copy-btn" onclick="copy(this,'Registrado.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">✗ Não tomou</div><div class="msg-content"><div class="bubble direto">Ok. Tome assim que possível.</div><button class="copy-btn" onclick="copy(this,'Ok. Tome assim que possível.')">⎘ copiar</button></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02b MÚLTIPLOS -->
+  <section class="etapa-section reveal" id="lembrete_multi">
+    <div class="etapa-header">
+      <div class="etapa-num">Etapa 02b</div>
+      <div class="etapa-title">Lembretes — Múltiplos Medicamentos</div>
+      <div class="etapa-sub">Um check-in por medicamento, no horário de cada um</div>
+      <span class="nudge-tag">⟶ Uma pergunta por mensagem — nunca agrupe medicamentos</span>
+    </div>
+    <div class="tone-blocks">
+      <div class="tone-block">
+        <div class="tone-block-header"><div class="tone-stripe acolhedor"></div><div class="tone-block-title"><div class="tone-block-name">💚 Acolhedor</div></div></div>
+        <div class="msgs-grid tone-content visible" data-tone="acolhedor">
+          <div class="msg-row"><div class="msg-label">Lembrete 1</div><div class="msg-content"><div class="bubble acolhedor">Bom dia, {nome}! ☀️ Hora do {medicamento_1}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Bom dia, {nome}! ☀️ Hora do {medicamento_1}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Lembrete 2</div><div class="msg-content"><div class="bubble acolhedor">Boa tarde, {nome}! 💊 Hora do {medicamento_2}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Boa tarde, {nome}! 💊 Hora do {medicamento_2}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Resumo do dia</div><div class="msg-content"><div class="bubble acolhedor">Ótimo dia, {nome}! Você tomou {n_tomados} de {n_total} medicamentos hoje. 💚</div><button class="copy-btn" onclick="copy(this,'Ótimo dia, {nome}! Você tomou {n_tomados} de {n_total} medicamentos hoje. 💚')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="motivacional">
+          <div class="msg-row"><div class="msg-label">Lembrete 1</div><div class="msg-content"><div class="bubble motivacional">{nome}, primeiro check do dia! {medicamento_1} tomado? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'{nome}, primeiro check do dia! {medicamento_1} tomado? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Lembrete 2</div><div class="msg-content"><div class="bubble motivacional">Segundo check, {nome}! {medicamento_2} em dia? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Segundo check, {nome}! {medicamento_2} em dia? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Resumo do dia</div><div class="msg-content"><div class="bubble motivacional">Dia {n_tomados}/{n_total} para você hoje! Continue assim! 🎯</div><button class="copy-btn" onclick="copy(this,'Dia {n_tomados}/{n_total} para você hoje! Continue assim! 🎯')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="direto">
+          <div class="msg-row"><div class="msg-label">Lembrete 1</div><div class="msg-content"><div class="bubble direto">Lembrete: {medicamento_1}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Lembrete: {medicamento_1}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Lembrete 2</div><div class="msg-content"><div class="bubble direto">Lembrete: {medicamento_2}. Tomou? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'Lembrete: {medicamento_2}. Tomou? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Resumo do dia</div><div class="msg-content"><div class="bubble direto">Hoje: {n_tomados}/{n_total} medicamentos registrados.</div><button class="copy-btn" onclick="copy(this,'Hoje: {n_tomados}/{n_total} medicamentos registrados.')">⎘ copiar</button></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="warn-box"><span class="warn-icon">⚠️</span><span>Nunca envie múltiplos medicamentos na mesma mensagem. Um lembrete por medicamento, no horário de cada um — princípio de simplificação radical.</span></div>
+  </section>
+
+  <!-- 03 FOLLOW-UP -->
+  <section class="etapa-section reveal" id="followup">
+    <div class="etapa-header">
+      <div class="etapa-num">Etapa 03</div>
+      <div class="etapa-title">Follow-up de Não-Resposta</div>
+      <div class="etapa-sub">Paciente não respondeu ao lembrete após X horas (configurável por tenant)</div>
+      <span class="nudge-tag amber">⟶ Sinal emocional sem pressão — máximo 1 follow-up por lembrete</span>
+    </div>
+    <div class="tone-blocks">
+      <div class="tone-block">
+        <div class="tone-block-header"><div class="tone-stripe acolhedor"></div><div class="tone-block-title"><div class="tone-block-name">💚 Acolhedor</div></div></div>
+        <div class="msgs-grid tone-content visible" data-tone="acolhedor">
+          <div class="msg-row"><div class="msg-label">Follow-up</div><div class="msg-content"><div class="bubble acolhedor">Oi, {nome}! Tudo bem? Notei que ainda não confirmou o {medicamento} de hoje. Conseguiu tomar?</div><button class="copy-btn" onclick="copy(this,'Oi, {nome}! Tudo bem? Notei que ainda não confirmou o {medicamento} de hoje. Conseguiu tomar?')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se SIM</div><div class="msg-content"><div class="bubble acolhedor">Que bom, {nome}! Registrado 💚 Às vezes a vida atropela mesmo.</div><button class="copy-btn" onclick="copy(this,'Que bom, {nome}! Registrado 💚 Às vezes a vida atropela mesmo.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se NÃO</div><div class="msg-content"><div class="bubble acolhedor">Tudo bem, acontece. 🤍 Anota aí para não esquecer amanhã, tá?</div><button class="copy-btn" onclick="copy(this,'Tudo bem, acontece. 🤍 Anota aí para não esquecer amanhã, tá?')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Sem resposta</div><div class="msg-content"><div class="bubble system">Sem nova mensagem — registrar como não tomado e aguardar próximo dia</div></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="motivacional">
+          <div class="msg-row"><div class="msg-label">Follow-up</div><div class="msg-content"><div class="bubble motivacional">Ei, {nome}! Passou do horário do {medicamento}. Ainda dá tempo — tomou?</div><button class="copy-btn" onclick="copy(this,'Ei, {nome}! Passou do horário do {medicamento}. Ainda dá tempo — tomou?')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se SIM</div><div class="msg-content"><div class="bubble motivacional">Boa, {nome}! Sequência mantida! 🎯</div><button class="copy-btn" onclick="copy(this,'Boa, {nome}! Sequência mantida! 🎯')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se NÃO</div><div class="msg-content"><div class="bubble motivacional">Tranquilo! Amanhã você recomeça. 💪</div><button class="copy-btn" onclick="copy(this,'Tranquilo! Amanhã você recomeça. 💪')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Sem resposta</div><div class="msg-content"><div class="bubble system">Sem nova mensagem — registrar como não tomado</div></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="direto">
+          <div class="msg-row"><div class="msg-label">Follow-up</div><div class="msg-content"><div class="bubble direto">{nome}, você não confirmou o {medicamento} de hoje. Tomou?</div><button class="copy-btn" onclick="copy(this,'{nome}, você não confirmou o {medicamento} de hoje. Tomou?')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se SIM</div><div class="msg-content"><div class="bubble direto">Registrado.</div><button class="copy-btn" onclick="copy(this,'Registrado.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se NÃO</div><div class="msg-content"><div class="bubble direto">Ok. Registrado como não tomado.</div><button class="copy-btn" onclick="copy(this,'Ok. Registrado como não tomado.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Sem resposta</div><div class="msg-content"><div class="bubble system">Sem nova mensagem</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="warn-box"><span class="warn-icon">⚠️</span><span>Máximo 1 follow-up por lembrete. Mais que isso vira spam e destrói a relação com o paciente.</span></div>
+  </section>
+
+  <!-- 04 REENGAJAMENTO -->
+  <section class="etapa-section reveal" id="reengajamento">
+    <div class="etapa-header">
+      <div class="etapa-num">Etapa 04</div>
+      <div class="etapa-title">Reengajamento</div>
+      <div class="etapa-sub">Paciente sem check-in por N dias — máximo 2 tentativas com 2 dias de intervalo</div>
+      <span class="nudge-tag amber">⟶ Norma social ascendente + comprometimento + sinal emocional</span>
+    </div>
+    <div class="tone-blocks">
+      <div class="tone-block">
+        <div class="tone-block-header"><div class="tone-stripe acolhedor"></div><div class="tone-block-title"><div class="tone-block-name">💚 Acolhedor</div></div></div>
+        <div class="msgs-grid tone-content visible" data-tone="acolhedor">
+          <div class="msg-row"><div class="msg-label">Tentativa 1</div><div class="msg-content"><div class="bubble acolhedor">Oi, {nome}, sumiu! 🤍 Tá tudo bem por aí? Faz {n_dias} dias que não nos falamos. Seus medicamentos ainda são importantes — a gente pode retomar quando você quiser.</div><button class="copy-btn" onclick="copy(this,'Oi, {nome}, sumiu! 🤍 Tá tudo bem por aí? Faz {n_dias} dias que não nos falamos. Seus medicamentos ainda são importantes — a gente pode retomar quando você quiser.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Tentativa 2</div><div class="msg-content"><div class="bubble acolhedor">Oi, {nome}! Uma última mensagem: a maioria dos pacientes que pausa volta em até 2 dias. Quer retomar agora? Responda SIM ou PAUSA se precisar de mais tempo.</div><button class="copy-btn" onclick="copy(this,'Oi, {nome}! Uma última mensagem: a maioria dos pacientes que pausa volta em até 2 dias. Quer retomar agora? Responda SIM ou PAUSA se precisar de mais tempo.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Reativou ✓</div><div class="msg-content"><div class="bubble acolhedor">Que bom, {nome}! Bem-vindo de volta! 💚 Seus lembretes voltam a partir de amanhã.</div><button class="copy-btn" onclick="copy(this,'Que bom, {nome}! Bem-vindo de volta! 💚 Seus lembretes voltam a partir de amanhã.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Sem resposta</div><div class="msg-content"><div class="bubble system">Marcar como inativo — sem mais mensagens automáticas</div></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="motivacional">
+          <div class="msg-row"><div class="msg-label">Tentativa 1</div><div class="msg-content"><div class="bubble motivacional">{nome}, notei que você parou há {n_dias} dias. Acontece! Mas você já chegou longe — é hora de retomar. Consegue voltar hoje?</div><button class="copy-btn" onclick="copy(this,'{nome}, notei que você parou há {n_dias} dias. Acontece! Mas você já chegou longe — é hora de retomar. Consegue voltar hoje?')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Tentativa 2</div><div class="msg-content"><div class="bubble motivacional">Última chance, {nome}! 9 em cada 10 pacientes que retomam nos primeiros 5 dias mantêm a sequência. Você está a tempo. SIM para voltar.</div><button class="copy-btn" onclick="copy(this,'Última chance, {nome}! 9 em cada 10 pacientes que retomam nos primeiros 5 dias mantêm a sequência. Você está a tempo. SIM para voltar.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Reativou ✓</div><div class="msg-content"><div class="bubble motivacional">Isso! 🎯 {nome} está de volta. Recomeçando os lembretes amanhã!</div><button class="copy-btn" onclick="copy(this,'Isso! 🎯 {nome} está de volta. Recomeçando os lembretes amanhã!')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Sem resposta</div><div class="msg-content"><div class="bubble system">Marcar como inativo</div></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="direto">
+          <div class="msg-row"><div class="msg-label">Tentativa 1</div><div class="msg-content"><div class="bubble direto">{nome}, você está sem registrar o {medicamento} há {n_dias} dias. Quer retomar os lembretes? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'{nome}, você está sem registrar o {medicamento} há {n_dias} dias. Quer retomar os lembretes? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Tentativa 2</div><div class="msg-content"><div class="bubble direto">Última mensagem: quer manter os lembretes ativos? SIM para continuar ou NÃO para encerrar.</div><button class="copy-btn" onclick="copy(this,'Última mensagem: quer manter os lembretes ativos? SIM para continuar ou NÃO para encerrar.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Reativou ✓</div><div class="msg-content"><div class="bubble direto">Lembretes reativados a partir de amanhã.</div><button class="copy-btn" onclick="copy(this,'Lembretes reativados a partir de amanhã.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Sem resposta</div><div class="msg-content"><div class="bubble system">Marcar como inativo</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="warn-box"><span class="warn-icon">⚠️</span><span>Linguagem de reengajamento é o lugar certo para IA personalizar o texto — mas guardrails obrigatórios. Nunca pressionar, nunca prometer resultado clínico.</span></div>
+  </section>
+
+  <!-- 05 MARCOS -->
+  <section class="etapa-section reveal" id="marcos">
+    <div class="etapa-header">
+      <div class="etapa-num">Etapa 05</div>
+      <div class="etapa-title">Marcos de Progresso</div>
+      <div class="etapa-sub">D7, D14, D30 — feedback de sequência e comprometimento</div>
+      <span class="nudge-tag">⟶ Comprometimento + feedback imediato + norma social ascendente</span>
+    </div>
+    <div class="tone-blocks">
+      <div class="tone-block">
+        <div class="tone-block-header"><div class="tone-stripe acolhedor"></div><div class="tone-block-title"><div class="tone-block-name">💚 Acolhedor</div></div></div>
+        <div class="msgs-grid tone-content visible" data-tone="acolhedor">
+          <div class="msg-row"><div class="msg-label">D7</div><div class="msg-content"><div class="bubble acolhedor">Uma semana, {nome}! 🎉 7 dias seguidos de {medicamento}. Você está construindo um hábito de verdade. Continue mais 7 dias para chegar ao D14!</div><button class="copy-btn" onclick="copy(this,'Uma semana, {nome}! 🎉 7 dias seguidos de {medicamento}. Você está construindo um hábito de verdade. Continue mais 7 dias para chegar ao D14!')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">D7 (variação)</div><div class="msg-content"><div class="bubble acolhedor">7 dias, {nome}! Você está entre os pacientes mais consistentes. Continue assim — faltam 7 dias para o D14! 💪</div><button class="copy-btn" onclick="copy(this,'7 dias, {nome}! Você está entre os pacientes mais consistentes. Continue assim — faltam 7 dias para o D14! 💪')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">D14</div><div class="msg-content"><div class="bubble acolhedor">Duas semanas, {nome}! 💚 14 dias seguidos! A maioria dos pacientes que chega aqui fica por muito mais tempo. Você está no caminho certo.</div><button class="copy-btn" onclick="copy(this,'Duas semanas, {nome}! 💚 14 dias seguidos! A maioria dos pacientes que chega aqui fica por muito mais tempo. Você está no caminho certo.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">D30</div><div class="msg-content"><div class="bubble acolhedor">{nome}, 30 dias! 🏆 Um mês inteiro cuidando de você. Seu médico vai adorar ver essa consistência na próxima consulta. Obrigada por confiar na Kokoro!</div><button class="copy-btn" onclick="copy(this,'{nome}, 30 dias! 🏆 Um mês inteiro cuidando de você. Seu médico vai adorar ver essa consistência na próxima consulta. Obrigada por confiar na Kokoro!')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="motivacional">
+          <div class="msg-row"><div class="msg-label">D7</div><div class="msg-content"><div class="bubble motivacional">D7 completo, {nome}! 🎯 Uma semana na sequência. Você está construindo algo real. 7 dias mais e você chega ao D14!</div><button class="copy-btn" onclick="copy(this,'D7 completo, {nome}! 🎯 Uma semana na sequência. Você está construindo algo real. 7 dias mais e você chega ao D14!')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">D7 (variação)</div><div class="msg-content"><div class="bubble motivacional">Semana 1 completa! 🔥 {nome} está entre os {pct}% mais consistentes. Continue!</div><button class="copy-btn" onclick="copy(this,'Semana 1 completa! 🔥 {nome} está entre os {pct}% mais consistentes. Continue!')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">D14</div><div class="msg-content"><div class="bubble motivacional">D14, {nome}! 💥 Duas semanas! Isso não é sorte, é hábito. Mais 16 dias e você chega ao primeiro mês!</div><button class="copy-btn" onclick="copy(this,'D14, {nome}! 💥 Duas semanas! Isso não é sorte, é hábito. Mais 16 dias e você chega ao primeiro mês!')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">D30</div><div class="msg-content"><div class="bubble motivacional">D30! 🏆 {nome}, um mês de consistência. Isso é o que faz o medicamento funcionar de verdade. Incrível!</div><button class="copy-btn" onclick="copy(this,'D30! 🏆 {nome}, um mês de consistência. Isso é o que faz o medicamento funcionar de verdade. Incrível!')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="direto">
+          <div class="msg-row"><div class="msg-label">D7</div><div class="msg-content"><div class="bubble direto">{nome}, 7 dias seguidos de {medicamento}. Continue para chegar ao D14.</div><button class="copy-btn" onclick="copy(this,'{nome}, 7 dias seguidos de {medicamento}. Continue para chegar ao D14.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">D14</div><div class="msg-content"><div class="bubble direto">D14 atingido, {nome}. 14 dias consecutivos. Siga em frente.</div><button class="copy-btn" onclick="copy(this,'D14 atingido, {nome}. 14 dias consecutivos. Siga em frente.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">D30</div><div class="msg-content"><div class="bubble direto">{nome}, 30 dias de {medicamento} registrados. Parabéns pela consistência.</div><button class="copy-btn" onclick="copy(this,'{nome}, 30 dias de {medicamento} registrados. Parabéns pela consistência.')">⎘ copiar</button></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="warn-box"><span class="warn-icon">⚠️</span><span>Sempre combine o marco com um objetivo próximo — nunca "parabéns, fim". O próximo passo mantém o engajamento (princípio do comprometimento).</span></div>
+  </section>
+
+  <!-- 06 PAUSA -->
+  <section class="etapa-section reveal" id="pausa">
+    <div class="etapa-header">
+      <div class="etapa-num">Etapa 06</div>
+      <div class="etapa-title">Pausa e Retomada</div>
+      <div class="etapa-sub">Paciente solicita pausa ou operador pausa pelo portal</div>
+      <span class="nudge-tag blue">⟶ Comprometimento retroativo — ancorar a pausa ao retorno</span>
+    </div>
+    <div class="tone-blocks">
+      <div class="tone-block">
+        <div class="tone-block-header"><div class="tone-stripe acolhedor"></div><div class="tone-block-title"><div class="tone-block-name">💚 Acolhedor</div></div></div>
+        <div class="msgs-grid tone-content visible" data-tone="acolhedor">
+          <div class="msg-row"><div class="msg-label">Confirmação pausa</div><div class="msg-content"><div class="bubble acolhedor">Entendido, {nome}! 😊 Seus lembretes estão pausados. Para retomar a qualquer momento, é só me mandar uma mensagem. Cuide-se!</div><button class="copy-btn" onclick="copy(this,'Entendido, {nome}! 😊 Seus lembretes estão pausados. Para retomar a qualquer momento, é só me mandar uma mensagem. Cuide-se!')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Pausa com prazo</div><div class="msg-content"><div class="bubble acolhedor">Pausado até {data}, {nome}! Vou te avisar quando chegar a hora de retomar. Qualquer coisa, me chama. 🤍</div><button class="copy-btn" onclick="copy(this,'Pausado até {data}, {nome}! Vou te avisar quando chegar a hora de retomar. Qualquer coisa, me chama. 🤍')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Fim da pausa</div><div class="msg-content"><div class="bubble acolhedor">Oi, {nome}! Sua pausa acabou. Que tal retomar os lembretes do {medicamento} a partir de amanhã? Responda SIM para continuar ou PAUSA para mais alguns dias.</div><button class="copy-btn" onclick="copy(this,'Oi, {nome}! Sua pausa acabou. Que tal retomar os lembretes do {medicamento} a partir de amanhã? Responda SIM para continuar ou PAUSA para mais alguns dias.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Retomada ✓</div><div class="msg-content"><div class="bubble acolhedor">Ótimo, {nome}! Bem-vindo de volta 💚 Lembretes retomados a partir de amanhã.</div><button class="copy-btn" onclick="copy(this,'Ótimo, {nome}! Bem-vindo de volta 💚 Lembretes retomados a partir de amanhã.')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="motivacional">
+          <div class="msg-row"><div class="msg-label">Confirmação pausa</div><div class="msg-content"><div class="bubble motivacional">Pausa confirmada, {nome}! Descanse bem. Quando voltar, a gente retoma de onde parou. 💪</div><button class="copy-btn" onclick="copy(this,'Pausa confirmada, {nome}! Descanse bem. Quando voltar, a gente retoma de onde parou. 💪')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Pausa com prazo</div><div class="msg-content"><div class="bubble motivacional">Pausado até {data}. Você tem {n_dias} dias acumulados — vamos continuar quando voltar!</div><button class="copy-btn" onclick="copy(this,'Pausado até {data}. Você tem {n_dias} dias acumulados — vamos continuar quando voltar!')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Fim da pausa</div><div class="msg-content"><div class="bubble motivacional">{nome}, sua pausa acabou! Você tinha {n_dias} dias na sequência antes de pausar. Hora de retomar? SIM ou mais PAUSA</div><button class="copy-btn" onclick="copy(this,'{nome}, sua pausa acabou! Você tinha {n_dias} dias na sequência antes de pausar. Hora de retomar? SIM ou mais PAUSA')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Retomada ✓</div><div class="msg-content"><div class="bubble motivacional">Isso! {nome} voltou! 🎯 Lembretes retomados amanhã.</div><button class="copy-btn" onclick="copy(this,'Isso! {nome} voltou! 🎯 Lembretes retomados amanhã.')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="direto">
+          <div class="msg-row"><div class="msg-label">Confirmação pausa</div><div class="msg-content"><div class="bubble direto">Lembretes pausados, {nome}. Responda RETOMAR quando quiser continuar.</div><button class="copy-btn" onclick="copy(this,'Lembretes pausados, {nome}. Responda RETOMAR quando quiser continuar.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Pausa com prazo</div><div class="msg-content"><div class="bubble direto">Pausado até {data}. Lembretes retomam automaticamente nessa data.</div><button class="copy-btn" onclick="copy(this,'Pausado até {data}. Lembretes retomam automaticamente nessa data.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Fim da pausa</div><div class="msg-content"><div class="bubble direto">{nome}, sua pausa expirou. Quer retomar os lembretes? SIM ou NÃO</div><button class="copy-btn" onclick="copy(this,'{nome}, sua pausa expirou. Quer retomar os lembretes? SIM ou NÃO')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Retomada ✓</div><div class="msg-content"><div class="bubble direto">Lembretes reativados a partir de amanhã.</div><button class="copy-btn" onclick="copy(this,'Lembretes reativados a partir de amanhã.')">⎘ copiar</button></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 OPT-OUT -->
+  <section class="etapa-section reveal" id="optout">
+    <div class="etapa-header">
+      <div class="etapa-num">Etapa 07</div>
+      <div class="etapa-title">Opt-out</div>
+      <div class="etapa-sub">Paciente solicita descadastro — obrigação legal LGPD + política WhatsApp</div>
+      <span class="nudge-tag red">⟶ Implementar antes de qualquer paciente real, sem exceção</span>
+    </div>
+    <div class="tone-blocks">
+      <div class="tone-block">
+        <div class="tone-block-header"><div class="tone-stripe acolhedor"></div><div class="tone-block-title"><div class="tone-block-name">💚 Acolhedor</div></div></div>
+        <div class="msgs-grid tone-content visible" data-tone="acolhedor">
+          <div class="msg-row"><div class="msg-label">Confirmação</div><div class="msg-content"><div class="bubble acolhedor">Entendido, {nome}. Você foi descadastrado e não receberá mais mensagens. Se mudar de ideia, fale com a farmácia. Cuide-se! 🤍</div><button class="copy-btn" onclick="copy(this,'Entendido, {nome}. Você foi descadastrado e não receberá mais mensagens. Se mudar de ideia, fale com a farmácia. Cuide-se! 🤍')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se tentar falar</div><div class="msg-content"><div class="bubble acolhedor">Olá! Você está descadastrado do serviço Kokoro. Para se recadastrar, fale com a farmácia. 😊</div><button class="copy-btn" onclick="copy(this,'Olá! Você está descadastrado do serviço Kokoro. Para se recadastrar, fale com a farmácia. 😊')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="motivacional">
+          <div class="msg-row"><div class="msg-label">Confirmação</div><div class="msg-content"><div class="bubble motivacional">{nome}, descadastramento confirmado. Não haverá mais mensagens. Se quiser retornar um dia, fale com nosso parceiro.</div><button class="copy-btn" onclick="copy(this,'{nome}, descadastramento confirmado. Não haverá mais mensagens. Se quiser retornar um dia, fale com nosso parceiro.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se tentar falar</div><div class="msg-content"><div class="bubble motivacional">Você está descadastrado. Para voltar a usar o serviço, entre em contato com nossa farmácia parceira.</div><button class="copy-btn" onclick="copy(this,'Você está descadastrado. Para voltar a usar o serviço, entre em contato com nossa farmácia parceira.')">⎘ copiar</button></div></div>
+        </div>
+        <div class="msgs-grid tone-content" data-tone="direto">
+          <div class="msg-row"><div class="msg-label">Confirmação</div><div class="msg-content"><div class="bubble direto">Descadastrado. Nenhuma mensagem será enviada. Para reativar, contate a farmácia.</div><button class="copy-btn" onclick="copy(this,'Descadastrado. Nenhuma mensagem será enviada. Para reativar, contate a farmácia.')">⎘ copiar</button></div></div>
+          <div class="msg-row"><div class="msg-label">Se tentar falar</div><div class="msg-content"><div class="bubble direto">Você está descadastrado. Contate a farmácia para reativar.</div><button class="copy-btn" onclick="copy(this,'Você está descadastrado. Contate a farmácia para reativar.')">⎘ copiar</button></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="warn-box"><span class="warn-icon">⚠️</span><span>Palavras que ativam opt-out: SAIR, STOP, PARAR, CANCELAR, DESCADASTRAR (case-insensitive). Bloquear envios IMEDIATAMENTE — sem delays. O WhatsApp pode banir o número se isso não for respeitado.</span></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-brand">Kokoro</div>
+    <div class="footer-note">Baseado em Nudge — Richard H. Thaler &amp; Cass R. Sunstein</div>
+  </footer>
+
+</main>
