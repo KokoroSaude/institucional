@@ -1,77 +1,51 @@
 # Kokoro — Site Institucional
 
-Site institucional da Kokoro, construído com **Vite + React + TypeScript**.
+Site institucional da Kokoro (Vite + React + TypeScript).
 
-## Requisitos
+**Produção:** [https://kokorosaude.com.br](https://kokorosaude.com.br)
 
-- Node.js 18+
-- npm ou yarn
-
-## Como rodar localmente
+## Desenvolvimento
 
 ```bash
-# 1. Instalar dependências
 npm install
-
-# 2. Iniciar servidor de desenvolvimento
+cp .env.example .env
 npm run dev
 ```
 
 Acesse: http://localhost:5173
 
-## Build para produção
+## Deploy (Vercel)
 
-```bash
-npm run build
-```
+Projeto separado do portal (`portal/` é outro app no Vercel).
 
-Os arquivos de saída ficam em `/dist`.
+| Variável | Valor |
+|----------|--------|
+| `VITE_LOGIN_URL` | `https://portal.kokorosaude.com.br/login` |
 
-## Deploy rápido (Vercel)
+**Domínios sugeridos:**
 
-```bash
-npm install -g vercel
-vercel deploy
-```
+| App | Domínio |
+|-----|---------|
+| Institucional | `kokorosaude.com.br` / `www.kokorosaude.com.br` |
+| Portal | `portal.kokorosaude.com.br` |
 
-Ou arraste a pasta `/dist` direto em https://vercel.com/new.
+Build: `npm run build` → output `dist` (configurado em `vercel.json` com rewrite SPA).
 
-## Páginas internas (sem link no menu)
+## Páginas internas
 
-Rotas React com o mesmo layout da landing (nav coral, footer, tipografia e cores):
-
-| URL | Componente |
-|-----|------------|
-| `/biblioteca-mensagens` | `src/pages/BibliotecaMensagensPage.tsx` (+ mock WhatsApp fixo à direita) |
-| `/nudge` | `src/pages/NudgePage.tsx` |
+| URL | Descrição |
+|-----|-----------|
+| `/biblioteca-mensagens` | Biblioteca de mensagens |
+| `/nudge` | Nudge |
 
 ## Estrutura
 
 ```
 institucional/
-├── public/
-│   └── favicon.svg
 ├── src/
-│   ├── App.tsx        ← componentes da landing page
-│   ├── main.tsx       ← entry point React
-│   └── index.css      ← reset + estilos globais
-├── src/pages/          ← Home, Biblioteca, Nudge
-├── index.html
-├── package.json
-├── tsconfig.json
-├── tsconfig.node.json
+│   ├── pages/       Home, Biblioteca, Nudge
+│   ├── components/  Nav, Footer, Logo
+│   └── theme.ts     LOGIN_URL → portal
 ├── vercel.json
 └── vite.config.ts
 ```
-
-## Seções da página
-
-- **Nav** — fixa, com blur ao rolar
-- **Hero** — headline, bubble de chat, CTAs
-- **Problema** — estatísticas de impacto (IBGE, OMS, UFF)
-- **Solução** — jornada + mock de conversa WhatsApp
-- **Diferenciais** — 6 cards de features
-- **Planos** — BASE / SMART / INSIGHT
-- **Parceiros** — dashboard simulado + benefícios
-- **Contato** — formulário de captação de leads
-- **Footer**

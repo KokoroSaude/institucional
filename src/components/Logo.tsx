@@ -1,8 +1,20 @@
 interface LogoProps {
+  /** Fundo coral (nav, CTA) — logo branco */
   onCoral?: boolean;
-  size?: "sm" | "md";
+  /** light = fundos claros (1C) · dark = fundos escuros (2C) · onCoral = branco em coral */
+  variant?: "light" | "dark" | "onCoral";
+  size?: "sm" | "md" | "lg";
+  /** Exibe lockup completo com tagline (só Logo 1C em fundos claros) */
+  showTagline?: boolean;
   href?: string;
 }
+
+const HEIGHT = { sm: 40, md: 48, lg: 96 } as const;
+
+/** Logo 1C — coral + tagline (fundos claros) */
+const LOGO_LIGHT = "/Logo_1C-transparent.png";
+/** Logo 2C — coral (fundos escuros; base para versão branca no coral) */
+const LOGO_DARK = "/Logo_2C-transparent.png";
 
 export function HeartMark({ color, size = 28 }: { color: string; size?: number }) {
   return (
@@ -13,47 +25,54 @@ export function HeartMark({ color, size = 28 }: { color: string; size?: number }
   );
 }
 
-export function Logo({ onCoral = false, size = "md", href = "/" }: LogoProps) {
-  const height = size === "sm" ? 42 : 56;
-  const iconSize = size === "sm" ? 22 : 28;
-  const fontSize = size === "sm" ? 20 : 24;
-
-  if (onCoral) {
-    return (
-      <a
-        href={href}
-        style={{ display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none" }}
-        aria-label="Kokoro"
-      >
-        <HeartMark color="#fff" size={iconSize} />
-        <span
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            color: "#fff",
-            fontWeight: 700,
-            fontSize,
-            letterSpacing: 0.6,
-            lineHeight: 1,
-          }}
-        >
-          kokoro
-        </span>
-      </a>
-    );
-  }
+export function Logo({
+  onCoral = false,
+  variant,
+  size = "md",
+  showTagline = false,
+  href = "/",
+}: LogoProps) {
+  const mode = onCoral ? "onCoral" : (variant ?? "light");
+  const src = mode === "light" ? LOGO_LIGHT : LOGO_DARK;
+  const height = showTagline && mode === "light" ? HEIGHT.lg : HEIGHT[size];
+  const cropTagline = mode === "light" && !showTagline;
 
   return (
-    <a href={href} style={{ display: "inline-flex", alignItems: "center", textDecoration: "none" }} aria-label="Kokoro">
-      <img
-        src="/Logo 2C.png"
-        alt="Kokoro"
+    <a
+      href={href}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        textDecoration: "none",
+        lineHeight: 0,
+        maxWidth: showTagline ? 280 : mode === "dark" || mode === "onCoral" ? 200 : 160,
+      }}
+      aria-label="Kokoro"
+    >
+      <span
         style={{
-          height,
-          width: "auto",
           display: "block",
-          objectFit: "contain",
+          height,
+          overflow: cropTagline ? "hidden" : "visible",
+          borderRadius: 2,
         }}
-      />
+      >
+        <img
+          src={src}
+          alt="Kokoro"
+          width={mode === "light" ? height : Math.round(height * 1.5)}
+          height={height}
+          style={{
+            height: "100%",
+            width: "auto",
+            maxWidth: "100%",
+            display: "block",
+            objectFit: "contain",
+            objectPosition: cropTagline ? "top center" : "center",
+            filter: mode === "onCoral" ? "brightness(0) invert(1)" : "none",
+          }}
+        />
+      </span>
     </a>
   );
 }

@@ -250,7 +250,7 @@ function CTA() {
     <section id="contato" style={{ background: "linear-gradient(135deg,#F57170 0%,#D94F4F 100%)", padding: mobile ? "72px 24px" : "100px clamp(20px,5vw,60px)" }}>
       <div style={{ maxWidth: 560, margin: "0 auto", textAlign: "center" }}>
         <div style={{ display: "inline-flex", justifyContent: "center", marginBottom: 8 }}>
-          <Logo onCoral={true} />
+          <Logo onCoral size="lg" />
         </div>
         <h2 style={{ fontFamily: SERIF, fontSize: mobile ? 34 : "clamp(32px,4vw,52px)", color: "#fff", margin: "16px 0", lineHeight: 1.1 }}>
           Pronto para começar?

@@ -19,3 +19,7 @@ export const NAV_ITEMS = [
   { label: "Diferenciais", href: "/#diferenciais" },
   { label: "Para parceiros", href: "/#parceiros" },
 ] as const;
+
+/** Portal do parceiro / área logada (defina VITE_LOGIN_URL no .env) */
+export const LOGIN_URL =
+  (import.meta.env.VITE_LOGIN_URL as string | undefined)?.trim() || "https://portal.kokorosaude.com.br/login";

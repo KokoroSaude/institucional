@@ -24,7 +24,7 @@ export function SiteFooter() {
           gap: 20,
         }}
       >
-        <Logo onCoral href="/" size="sm" />
+        <Logo variant="dark" href="/" size="sm" />
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
           {NAV_ITEMS.map((n) => (
             <a

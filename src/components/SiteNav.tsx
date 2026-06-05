@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { useIsMobile } from "../hooks/useIsMobile";
-import { COLORS, FONT_SANS, NAV_ITEMS } from "../theme";
+import { COLORS, FONT_SANS, LOGIN_URL, NAV_ITEMS } from "../theme";
 
 interface SiteNavProps {
   /** Nav sempre coral (páginas internas sem hero) */
@@ -74,6 +74,34 @@ export function SiteNav({ solid = false }: SiteNavProps) {
                 {n.label}
               </a>
             ))}
+            <a
+              href={LOGIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "rgba(255,255,255,0.88)",
+                textDecoration: "none",
+                fontSize: 14,
+                fontFamily: FONT_SANS,
+                fontWeight: 600,
+                padding: "8px 16px",
+                borderRadius: 100,
+                border: "2px solid rgba(255,255,255,0.45)",
+                transition: "color 0.2s, border-color 0.2s, background 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.borderColor = "#fff";
+                e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "rgba(255,255,255,0.88)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.45)";
+                e.currentTarget.style.background = "transparent";
+              }}
+            >
+              Login
+            </a>
             <a
               href="/#contato"
               style={{
@@ -169,11 +197,31 @@ export function SiteNav({ solid = false }: SiteNavProps) {
                 {n.label}
               </a>
             ))}
+            <a
+              href={LOGIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              style={{
+                marginTop: 12,
+                color: "#fff",
+                fontFamily: FONT_SANS,
+                fontSize: 16,
+                fontWeight: 600,
+                padding: "12px 24px",
+                textDecoration: "none",
+                textAlign: "center",
+                borderRadius: 100,
+                border: "2px solid rgba(255,255,255,0.45)",
+              }}
+            >
+              Login
+            </a>
             <Link
               to="/#contato"
               onClick={() => setOpen(false)}
               style={{
-                marginTop: 16,
+                marginTop: 12,
                 background: "#fff",
                 color: COLORS.coral,
                 padding: "14px 24px",
