@@ -37,6 +37,7 @@ Build: `npm run build` → output `dist` (configurado em `vercel.json` com rewri
 |-----|-----------|
 | `/biblioteca-mensagens` | Biblioteca de mensagens |
 | `/nudge` | Nudge |
+| `/mvp` | Panorama interno do MVP (sócios — noindex) |
 
 ## Estrutura
 
