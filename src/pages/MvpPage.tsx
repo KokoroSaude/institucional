@@ -80,13 +80,13 @@ const MODULES: Module[] = [
       "Dashboard, pacientes, relatórios e configurações — tudo com controle de acesso por plano e papel (admin, operador, viewer).",
     items: [
       { title: "Dashboard", detail: "Visão geral de adesão e atividade do programa no tenant." },
-      { title: "Pacientes", detail: "Lista, busca, cadastro manual, detalhe com timeline e exportação CSV." },
+      { title: "Pacientes", detail: "Lista, busca, cadastro manual, edição de telefone, detalhe com timeline e exportação CSV." },
       { title: "Relatórios", detail: "Adesão, engajamento, funil, ranking, operação, remetentes e comparativo de períodos." },
       { title: "Exportação PDF", detail: "Relatório completo imprimível com métricas e tabelas do período selecionado." },
       { title: "Jornada visual", detail: "Mapa da experiência do paciente com preview das mensagens em cada etapa." },
-      { title: "WhatsApp", detail: "Cadastro de remetentes (número, WABA, phone ID) e checklist de onboarding." },
+      { title: "WhatsApp", detail: "Cadastro e edição de remetentes (número, WABA, phone ID) com checklist de onboarding." },
       { title: "Templates", detail: "Visualização e edição de mensagens do tenant (planos Premium+)." },
-      { title: "Configurações", detail: "Plano, usuários do tenant, janela de envio e senha — upgrade via Mercado Pago em breve (botão desabilitado por enquanto)." },
+      { title: "Configurações", detail: "Plano, usuários do tenant (inclui exclusão com confirmação), janela de envio e senha — upgrade via Mercado Pago em breve (botão desabilitado por enquanto)." },
       { title: "Meu perfil", detail: "Nome, e-mail, foto de perfil e troca de senha." },
       { title: "Guia passo a passo", detail: "Tour interativo para novos usuários do portal." },
       { title: "Cadastro self-service", detail: "Signup de novos tenants com plano Freemium." },
@@ -102,10 +102,10 @@ const MODULES: Module[] = [
       "Visão consolidada de todos os tenants, planos, features e operação — incluindo impersonação para suporte.",
     items: [
       { title: "Visão geral", detail: "Métricas de produto: tenants, pacientes, check-ins e saúde da plataforma." },
-      { title: "Tenants", detail: "CRUD, ativação/desativação, plano, impersonação e gestão de usuários por tenant." },
-      { title: "Relatórios multi-tenant", detail: "Mesmas abas do tenant, filtradas por seleção de tenants + PDF consolidado." },
+      { title: "Tenants", detail: "CRUD, ativação/desativação, plano, impersonação e gestão de usuários por tenant (inclui exclusão)." },
+      { title: "Relatórios multi-tenant", detail: "Mesmas abas do tenant com seletor pesquisável (busca, filtro ativo/inativo, chips) + PDF consolidado." },
       { title: "Planos & features", detail: "Freemium / Premium / Enterprise com flags granulares por capability." },
-      { title: "Superadmins", detail: "Criação, edição (nome, e-mail, status) e controle de acesso à plataforma." },
+      { title: "Superadmins", detail: "Criação, edição (nome, e-mail, status), exclusão com proteções e controle de acesso à plataforma." },
       { title: "Onboarding WhatsApp", detail: "Templates globais do fluxo de entrada com editor e categorias." },
       { title: "Mensagens operacionais", detail: "Lembretes, follow-ups, reengajamento e marcos — padrão para todos os tenants." },
       { title: "Simulador", detail: "Teste end-to-end do onboarding conversacional." },
@@ -155,7 +155,7 @@ const TIMELINE = [
   { phase: "Portal v1", desc: "Pacientes, dashboard, configurações e primeiros relatórios" },
   { phase: "Plataforma", desc: "Superadmin, planos, features, templates globais e simulador" },
   { phase: "Operação", desc: "Follow-up, reengajamento, milestones, exportações e checklist" },
-  { phase: "Maturidade", desc: "Relatórios PDF, avatares, reset de senha, tenant inativo, CI" },
+  { phase: "Maturidade", desc: "Relatórios PDF, seletor multi-tenant, exclusão de usuários, avatares, reset de senha, CI" },
 ];
 
 interface NextStep {
