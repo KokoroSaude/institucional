@@ -211,7 +211,7 @@ function Hero() {
         >
           Kokoro MVP
           <br />
-          <span style={{ fontStyle: "italic", opacity: 0.88 }}>tudo o que já construímos</span>
+          <span style={{ fontStyle: "italic", opacity: 0.88 }}>tudo o que já temos até agora</span>
         </h1>
 
         <p
@@ -224,8 +224,8 @@ function Hero() {
             fontFamily: F,
           }}
         >
-          Panorama completo do produto entregue até junho/2026 — plataforma multi-tenant de adesão
-          medicamentosa via WhatsApp, portal do parceiro e console de gestão Kokoro.
+          Tudo o que a Kokoro já tem até agora — plataforma multi-tenant de adesão medicamentosa via
+          WhatsApp, portal do parceiro e console de gestão.
         </p>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
@@ -544,7 +544,7 @@ function AccessCta() {
 
 export default function MvpPage() {
   useEffect(() => {
-    document.title = "Kokoro MVP — Panorama do produto";
+    document.title = "Kokoro MVP — tudo o que já temos até agora";
     const meta = document.querySelector('meta[name="robots"]');
     if (meta) {
       meta.setAttribute("content", "noindex, nofollow");
