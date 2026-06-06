@@ -86,7 +86,7 @@ const MODULES: Module[] = [
       { title: "Jornada visual", detail: "Mapa da experiência do paciente com preview das mensagens em cada etapa." },
       { title: "WhatsApp", detail: "Cadastro de remetentes (número, WABA, phone ID) e checklist de onboarding." },
       { title: "Templates", detail: "Visualização e edição de mensagens do tenant (planos Premium+)." },
-      { title: "Configurações", detail: "Plano, usuários do tenant, janela de envio, alteração de senha — upgrade de plano com UI pronta, pagamento ainda não ativo." },
+      { title: "Configurações", detail: "Plano, usuários do tenant, janela de envio e senha — upgrade via Mercado Pago em breve (botão desabilitado por enquanto)." },
       { title: "Meu perfil", detail: "Nome, e-mail, foto de perfil e troca de senha." },
       { title: "Guia passo a passo", detail: "Tour interativo para novos usuários do portal." },
       { title: "Cadastro self-service", detail: "Signup de novos tenants com plano Freemium." },
@@ -127,7 +127,7 @@ const MODULES: Module[] = [
       { title: "Multi-tenant isolado", detail: "Middleware de tenant, features por assinatura e dados segregados." },
       { title: "Jobs em background", detail: "Scheduler (1 réplica) + consumers escaláveis para lembretes e fluxos." },
       { title: "Upload de avatares", detail: "Armazenamento local com endpoints dedicados." },
-      { title: "Billing & e-mail", detail: "Endpoints Stripe e checkout prontos; em produção o plano ainda é atribuído manualmente (stub)." },
+      { title: "Billing & e-mail", detail: "Integração Mercado Pago preparada na API; checkout desligado até configurar credenciais de produção." },
       { title: "Observabilidade", detail: "Serilog JSON, /metrics Prometheus, business_events, alertas Grafana." },
       { title: "CI", detail: "GitHub Actions para build e testes automatizados (API e Portal)." },
       { title: "Docker local", detail: "Postgres + Redis + API + Worker via docker-compose." },
@@ -169,13 +169,13 @@ interface NextStep {
 const NEXT_STEPS: NextStep[] = [
   {
     icon: "💳",
-    title: "Pagamento e assinatura de planos",
-    status: "Preparado na API · não ativo em produção",
+    title: "Pagamento e assinatura de planos (Mercado Pago)",
+    status: "Integração preparada · aguardando credenciais",
     summary:
-      "Hoje o plano (Freemium, Premium, Enterprise) é definido manualmente pelo superadmin ou no cadastro. A base para cobrança automática já existe — falta ligar o Stripe e finalizar a experiência no portal.",
+      "Cadastro self-service permanece aberto e todo tenant novo entra no Freemium. Premium e Enterprise hoje só via superadmin; quando o Mercado Pago estiver ativo, o upgrade será self-service no portal.",
     bullets: [
-      "Freemium continua gratuito, sem checkout.",
-      "Upgrade no portal (Configurações → Plano): botão leva ao checkout Stripe (cartão, assinatura recorrente).",
+      "Freemium continua gratuito, sem checkout — é o plano padrão de todo cadastro.",
+      "Upgrade no portal (Configurações → Plano): botão leva ao checkout Mercado Pago (cartão, assinatura recorrente).",
       "Após pagamento, webhook confirma e o plano é aplicado na hora — features liberadas automaticamente.",
       "Cancelamento ou falha de pagamento: downgrade ou bloqueio gradual (a definir na política comercial).",
       "Superadmin mantém override manual para pilotos, cortesias e suporte.",
@@ -663,11 +663,11 @@ function NextSteps() {
             lineHeight: 1.65,
           }}
         >
-          <strong style={{ color: "#fff" }}>Como funciona hoje:</strong> novo tenant entra no Freemium. Premium e
-          Enterprise são atribuídos pelo superadmin em{" "}
-          <span style={{ color: CORAL }}>Admin → Tenants → Alterar plano</span>. A tela de upgrade no portal já chama a
-          API de billing; sem chaves Stripe configuradas, o sistema aplica o plano em modo demonstração (stub) — útil
-          para testes, não para cobrança real.
+          <strong style={{ color: "#fff" }}>Como funciona hoje:</strong> todo cadastro entra no{" "}
+          <span style={{ color: CORAL }}>Freemium</span>. Premium e Enterprise são atribuídos pelo superadmin em{" "}
+          <span style={{ color: CORAL }}>Admin → Tenants → Alterar plano</span>. A API já está preparada para Mercado
+          Pago; sem credenciais configuradas, o botão de upgrade no portal fica desabilitado — não há cobrança automática
+          nem upgrade acidental.
         </div>
       </div>
     </section>
