@@ -86,7 +86,7 @@ const MODULES: Module[] = [
       { title: "Jornada visual", detail: "Mapa da experiência do paciente com preview das mensagens em cada etapa." },
       { title: "WhatsApp", detail: "Cadastro de remetentes (número, WABA, phone ID) e checklist de onboarding." },
       { title: "Templates", detail: "Visualização e edição de mensagens do tenant (planos Premium+)." },
-      { title: "Configurações", detail: "Plano, usuários do tenant, janela de envio, alteração de senha." },
+      { title: "Configurações", detail: "Plano, usuários do tenant, janela de envio, alteração de senha — upgrade de plano com UI pronta, pagamento ainda não ativo." },
       { title: "Meu perfil", detail: "Nome, e-mail, foto de perfil e troca de senha." },
       { title: "Guia passo a passo", detail: "Tour interativo para novos usuários do portal." },
       { title: "Cadastro self-service", detail: "Signup de novos tenants com plano Freemium." },
@@ -127,7 +127,7 @@ const MODULES: Module[] = [
       { title: "Multi-tenant isolado", detail: "Middleware de tenant, features por assinatura e dados segregados." },
       { title: "Jobs em background", detail: "Scheduler (1 réplica) + consumers escaláveis para lembretes e fluxos." },
       { title: "Upload de avatares", detail: "Armazenamento local com endpoints dedicados." },
-      { title: "Billing & e-mail", detail: "Scaffolding para cobrança e envio transacional (reset de senha)." },
+      { title: "Billing & e-mail", detail: "Endpoints Stripe e checkout prontos; em produção o plano ainda é atribuído manualmente (stub)." },
       { title: "Observabilidade", detail: "Serilog JSON, /metrics Prometheus, business_events, alertas Grafana." },
       { title: "CI", detail: "GitHub Actions para build e testes automatizados (API e Portal)." },
       { title: "Docker local", detail: "Postgres + Redis + API + Worker via docker-compose." },
@@ -156,6 +156,61 @@ const TIMELINE = [
   { phase: "Plataforma", desc: "Superadmin, planos, features, templates globais e simulador" },
   { phase: "Operação", desc: "Follow-up, reengajamento, milestones, exportações e checklist" },
   { phase: "Maturidade", desc: "Relatórios PDF, avatares, reset de senha, tenant inativo, CI" },
+];
+
+interface NextStep {
+  icon: string;
+  title: string;
+  status: string;
+  summary: string;
+  bullets: string[];
+}
+
+const NEXT_STEPS: NextStep[] = [
+  {
+    icon: "💳",
+    title: "Pagamento e assinatura de planos",
+    status: "Preparado na API · não ativo em produção",
+    summary:
+      "Hoje o plano (Freemium, Premium, Enterprise) é definido manualmente pelo superadmin ou no cadastro. A base para cobrança automática já existe — falta ligar o Stripe e finalizar a experiência no portal.",
+    bullets: [
+      "Freemium continua gratuito, sem checkout.",
+      "Upgrade no portal (Configurações → Plano): botão leva ao checkout Stripe (cartão, assinatura recorrente).",
+      "Após pagamento, webhook confirma e o plano é aplicado na hora — features liberadas automaticamente.",
+      "Cancelamento ou falha de pagamento: downgrade ou bloqueio gradual (a definir na política comercial).",
+      "Superadmin mantém override manual para pilotos, cortesias e suporte.",
+    ],
+  },
+  {
+    icon: "📄",
+    title: "Nota fiscal e faturamento B2B",
+    status: "A definir",
+    summary: "Emissão de NF e cobrança por boleto/PIX para redes maiores, além do cartão self-service.",
+    bullets: [
+      "Contratos enterprise com faturamento mensal consolidado.",
+      "Integração contábil e relatório de receita por tenant.",
+    ],
+  },
+  {
+    icon: "📱",
+    title: "App Meta / números em escala",
+    status: "Parcial",
+    summary: "Fluxo de onboarding de WABA por tenant já existe; automação de provisionamento em volume vem depois.",
+    bullets: [
+      "Self-service de verificação de número WhatsApp Business.",
+      "Monitoramento de qualidade e limites de envio por remetente.",
+    ],
+  },
+  {
+    icon: "🚀",
+    title: "Go-to-market piloto",
+    status: "Próximo ciclo",
+    summary: "Primeiras farmácias parceiras com plano pago ou piloto gratuito controlado pelo superadmin.",
+    bullets: [
+      "Playbook comercial e materiais de onboarding do parceiro.",
+      "Métricas de sucesso do piloto (adesão D30, reengajamento, NPS).",
+    ],
+  },
 ];
 
 function Hero() {
@@ -247,7 +302,7 @@ function Hero() {
             Abrir portal
           </a>
           <a
-            href="#modulos"
+            href="#proximos-passos"
             style={{
               background: "transparent",
               color: "#fff",
@@ -258,6 +313,22 @@ function Hero() {
               fontSize: 15,
               textDecoration: "none",
               border: "2px solid rgba(255,255,255,0.45)",
+            }}
+          >
+            Próximos passos
+          </a>
+          <a
+            href="#modulos"
+            style={{
+              background: "rgba(255,255,255,0.12)",
+              color: "#fff",
+              padding: "12px 24px",
+              borderRadius: 100,
+              fontFamily: F,
+              fontWeight: 600,
+              fontSize: 15,
+              textDecoration: "none",
+              border: "2px solid rgba(255,255,255,0.25)",
             }}
           >
             Ver entregas
@@ -484,6 +555,125 @@ function ModuleSection({ module, index }: { module: Module; index: number }) {
   );
 }
 
+function NextSteps() {
+  const { ref, inView } = useInView();
+  const mobile = useIsMobile();
+  return (
+    <section
+      id="proximos-passos"
+      ref={ref}
+      style={{
+        background: "#fff",
+        padding: mobile ? "64px 24px" : "88px clamp(20px,5vw,60px)",
+        scrollMarginTop: 80,
+      }}
+    >
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <Label text="Próximos passos" />
+        <h2
+          style={{
+            fontFamily: SERIF,
+            fontSize: mobile ? 30 : 42,
+            color: COLORS.ink,
+            margin: "0 0 12px",
+            lineHeight: 1.15,
+          }}
+        >
+          O que vem depois do MVP
+        </h2>
+        <p
+          style={{
+            color: COLORS.inkMuted,
+            fontSize: 16,
+            fontFamily: F,
+            maxWidth: 640,
+            margin: "0 0 40px",
+            lineHeight: 1.65,
+          }}
+        >
+          O produto core está operacional. Estes itens fecham monetização, escala comercial e operação em campo.
+        </p>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          {NEXT_STEPS.map((step, i) => (
+            <div
+              key={step.title}
+              style={{
+                borderRadius: 16,
+                border: i === 0 ? `2px solid ${CORAL}` : "1.5px solid #f0ece8",
+                background: i === 0 ? "#fff8f7" : COLORS.cream,
+                padding: mobile ? "24px 20px" : "32px 28px",
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateY(0)" : "translateY(16px)",
+                transition: `opacity 0.5s ${i * 0.08}s, transform 0.5s ${i * 0.08}s`,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: 12,
+                  marginBottom: 12,
+                }}
+              >
+                <span style={{ fontSize: 28 }}>{step.icon}</span>
+                <h3 style={{ fontFamily: SERIF, fontSize: mobile ? 22 : 26, color: COLORS.ink, margin: 0, flex: 1 }}>
+                  {step.title}
+                </h3>
+                <span
+                  style={{
+                    fontSize: 11,
+                    fontFamily: F,
+                    fontWeight: 700,
+                    letterSpacing: 0.5,
+                    textTransform: "uppercase",
+                    color: i === 0 ? CORAL : "#888",
+                    background: i === 0 ? "rgba(245,113,112,0.12)" : "#eee",
+                    padding: "6px 12px",
+                    borderRadius: 100,
+                  }}
+                >
+                  {step.status}
+                </span>
+              </div>
+              <p style={{ margin: "0 0 16px", fontSize: 15, color: COLORS.inkMuted, fontFamily: F, lineHeight: 1.65 }}>
+                {step.summary}
+              </p>
+              <ul style={{ margin: 0, paddingLeft: 20, display: "flex", flexDirection: "column", gap: 8 }}>
+                {step.bullets.map((b) => (
+                  <li key={b} style={{ fontSize: 14, color: "#555", fontFamily: F, lineHeight: 1.55 }}>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div
+          style={{
+            marginTop: 32,
+            padding: "20px 24px",
+            borderRadius: 12,
+            background: COLORS.ink,
+            color: "#aaa",
+            fontSize: 14,
+            fontFamily: F,
+            lineHeight: 1.65,
+          }}
+        >
+          <strong style={{ color: "#fff" }}>Como funciona hoje:</strong> novo tenant entra no Freemium. Premium e
+          Enterprise são atribuídos pelo superadmin em{" "}
+          <span style={{ color: CORAL }}>Admin → Tenants → Alterar plano</span>. A tela de upgrade no portal já chama a
+          API de billing; sem chaves Stripe configuradas, o sistema aplica o plano em modo demonstração (stub) — útil
+          para testes, não para cobrança real.
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AccessCta() {
   const mobile = useIsMobile();
   return (
@@ -571,6 +761,7 @@ export default function MvpPage() {
           <ModuleSection key={m.id} module={m} index={i} />
         ))}
       </div>
+      <NextSteps />
       <AccessCta />
       <SiteFooter />
     </>
