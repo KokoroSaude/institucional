@@ -12,7 +12,7 @@ const CORAL = COLORS.coral;
 
 const SUMMARY = [
   { value: "3", label: "aplicações em produção", hint: "Institucional · Portal · API" },
-  { value: "Multi-tenant", label: "SaaS com planos", hint: "Freemium · Premium · Enterprise" },
+  { value: "Multi-tenant", label: "SaaS B2B", hint: "Farmácias e clínicas isoladas" },
   { value: "100%", label: "via WhatsApp", hint: "Onboarding até reengajamento" },
   { value: "LGPD", label: "by design", hint: "Consentimento · opt-out · auditoria" },
 ];
@@ -68,7 +68,7 @@ const MODULES: Module[] = [
       { title: "Reengajamento", detail: "Pacientes inativos recebem fluxo de retorno; opt-out imediato (sair, parar, cancelar)." },
       { title: "Marcos (milestones)", detail: "Celebração de streaks e marcos de adesão na jornada." },
       { title: "Simulador interno", detail: "Superadmin testa onboarding e mensagens sem disparar para pacientes reais." },
-      { title: "Templates versionados", detail: "Mensagens globais da plataforma + customização por tenant (conforme plano)." },
+      { title: "Templates versionados", detail: "Mensagens globais da plataforma + customização por tenant." },
     ],
   },
   {
@@ -77,7 +77,7 @@ const MODULES: Module[] = [
     label: "Portal do parceiro",
     title: "Operação da farmácia / rede",
     intro:
-      "Dashboard, pacientes, relatórios e configurações — tudo com controle de acesso por plano e papel (admin, operador, viewer).",
+      "Dashboard, pacientes, relatórios e configurações — tudo com controle de acesso por papel (admin, operador, viewer).",
     items: [
       { title: "Dashboard", detail: "Visão geral de adesão e atividade do programa no tenant." },
       { title: "Pacientes", detail: "Lista, busca, cadastro manual, edição de telefone, detalhe com timeline e exportação CSV." },
@@ -85,11 +85,11 @@ const MODULES: Module[] = [
       { title: "Exportação PDF", detail: "Relatório completo imprimível com métricas e tabelas do período selecionado." },
       { title: "Jornada visual", detail: "Mapa da experiência do paciente com preview das mensagens em cada etapa." },
       { title: "WhatsApp", detail: "Cadastro e edição de remetentes (número, WABA, phone ID) com checklist de onboarding." },
-      { title: "Templates", detail: "Visualização e edição de mensagens do tenant (planos Premium+)." },
-      { title: "Configurações", detail: "Plano, usuários do tenant (inclui exclusão com confirmação), janela de envio e senha — upgrade via Mercado Pago em breve (botão desabilitado por enquanto)." },
+      { title: "Templates", detail: "Visualização e edição de mensagens do tenant." },
+      { title: "Configurações", detail: "Usuários do tenant (inclui exclusão com confirmação), janela de envio, IA e senha." },
       { title: "Meu perfil", detail: "Nome, e-mail, foto de perfil e troca de senha." },
       { title: "Guia passo a passo", detail: "Tour interativo para novos usuários do portal." },
-      { title: "Cadastro self-service", detail: "Signup de novos tenants com plano Freemium." },
+      { title: "Cadastro self-service", detail: "Signup de novos tenants com acesso completo à plataforma." },
       { title: "Recuperação de senha", detail: "Fluxo por e-mail com token seguro e expiração." },
     ],
   },
@@ -99,12 +99,11 @@ const MODULES: Module[] = [
     label: "Console superadmin",
     title: "Gestão da plataforma Kokoro",
     intro:
-      "Visão consolidada de todos os tenants, planos, features e operação — incluindo impersonação para suporte.",
+      "Visão consolidada de todos os tenants e operação — incluindo impersonação para suporte.",
     items: [
       { title: "Visão geral", detail: "Métricas de produto: tenants, pacientes, check-ins e saúde da plataforma." },
-      { title: "Tenants", detail: "CRUD, ativação/desativação, plano, impersonação e gestão de usuários por tenant (inclui exclusão)." },
+      { title: "Tenants", detail: "CRUD, ativação/desativação, toggle de IA, impersonação e gestão de usuários por tenant (inclui exclusão)." },
       { title: "Relatórios multi-tenant", detail: "Mesmas abas do tenant com seletor pesquisável (busca, filtro ativo/inativo, chips) + PDF consolidado." },
-      { title: "Planos & features", detail: "Freemium / Premium / Enterprise com flags granulares por capability." },
       { title: "Superadmins", detail: "Criação, edição (nome, e-mail, status), exclusão com proteções e controle de acesso à plataforma." },
       { title: "Onboarding WhatsApp", detail: "Templates globais do fluxo de entrada com editor e categorias." },
       { title: "Mensagens operacionais", detail: "Lembretes, follow-ups, reengajamento e marcos — padrão para todos os tenants." },
@@ -124,10 +123,10 @@ const MODULES: Module[] = [
       { title: "Arquitetura em camadas", detail: "Domain · Application (MediatR) · Infrastructure · Api · Worker." },
       { title: "Auth JWT", detail: "Escopo tenant vs plataforma, refresh token, impersonação auditável." },
       { title: "Webhooks Meta", detail: "Recebimento de mensagens, verificação de assinatura e processamento inbound." },
-      { title: "Multi-tenant isolado", detail: "Middleware de tenant, features por assinatura e dados segregados." },
+      { title: "Multi-tenant isolado", detail: "Middleware de tenant, feature flags internas e dados segregados." },
       { title: "Jobs em background", detail: "Scheduler (1 réplica) + consumers escaláveis para lembretes e fluxos." },
       { title: "Upload de avatares", detail: "Armazenamento local com endpoints dedicados." },
-      { title: "Billing & e-mail", detail: "Integração Mercado Pago preparada na API; checkout desligado até configurar credenciais de produção." },
+      { title: "E-mail transacional", detail: "Recuperação de senha e notificações operacionais via SMTP." },
       { title: "Observabilidade", detail: "Serilog JSON, /metrics Prometheus, business_events, alertas Grafana." },
       { title: "CI", detail: "GitHub Actions para build e testes automatizados (API e Portal)." },
       { title: "Docker local", detail: "Postgres + Redis + API + Worker via docker-compose." },
@@ -153,7 +152,7 @@ const MODULES: Module[] = [
 const TIMELINE = [
   { phase: "Fundação", desc: "Multi-tenant, auth, webhooks WhatsApp, onboarding e lembretes" },
   { phase: "Portal v1", desc: "Pacientes, dashboard, configurações e primeiros relatórios" },
-  { phase: "Plataforma", desc: "Superadmin, planos, features, templates globais e simulador" },
+  { phase: "Plataforma", desc: "Superadmin, tenants, templates globais e simulador" },
   { phase: "Operação", desc: "Follow-up, reengajamento, milestones, exportações e checklist" },
   { phase: "Maturidade", desc: "Relatórios PDF, seletor multi-tenant, exclusão de usuários, avatares, reset de senha, CI" },
 ];
@@ -168,30 +167,6 @@ interface NextStep {
 
 const NEXT_STEPS: NextStep[] = [
   {
-    icon: "💳",
-    title: "Pagamento e assinatura de planos (Mercado Pago)",
-    status: "Integração preparada · aguardando credenciais",
-    summary:
-      "Cadastro self-service permanece aberto e todo tenant novo entra no Freemium. Premium e Enterprise hoje só via superadmin; quando o Mercado Pago estiver ativo, o upgrade será self-service no portal.",
-    bullets: [
-      "Freemium continua gratuito, sem checkout — é o plano padrão de todo cadastro.",
-      "Upgrade no portal (Configurações → Plano): botão leva ao checkout Mercado Pago (cartão, assinatura recorrente).",
-      "Após pagamento, webhook confirma e o plano é aplicado na hora — features liberadas automaticamente.",
-      "Cancelamento ou falha de pagamento: downgrade ou bloqueio gradual (a definir na política comercial).",
-      "Superadmin mantém override manual para pilotos, cortesias e suporte.",
-    ],
-  },
-  {
-    icon: "📄",
-    title: "Nota fiscal e faturamento B2B",
-    status: "A definir",
-    summary: "Emissão de NF e cobrança por boleto/PIX para redes maiores, além do cartão self-service.",
-    bullets: [
-      "Contratos enterprise com faturamento mensal consolidado.",
-      "Integração contábil e relatório de receita por tenant.",
-    ],
-  },
-  {
     icon: "📱",
     title: "App Meta / números em escala",
     status: "Parcial",
@@ -205,7 +180,7 @@ const NEXT_STEPS: NextStep[] = [
     icon: "🚀",
     title: "Go-to-market piloto",
     status: "Próximo ciclo",
-    summary: "Primeiras farmácias parceiras com plano pago ou piloto gratuito controlado pelo superadmin.",
+    summary: "Primeiras farmácias parceiras em piloto controlado pelo superadmin.",
     bullets: [
       "Playbook comercial e materiais de onboarding do parceiro.",
       "Métricas de sucesso do piloto (adesão D30, reengajamento, NPS).",
@@ -663,11 +638,9 @@ function NextSteps() {
             lineHeight: 1.65,
           }}
         >
-          <strong style={{ color: "#fff" }}>Como funciona hoje:</strong> todo cadastro entra no{" "}
-          <span style={{ color: CORAL }}>Freemium</span>. Premium e Enterprise são atribuídos pelo superadmin em{" "}
-          <span style={{ color: CORAL }}>Admin → Tenants → Alterar plano</span>. A API já está preparada para Mercado
-          Pago; sem credenciais configuradas, o botão de upgrade no portal fica desabilitado — não há cobrança automática
-          nem upgrade acidental.
+          <strong style={{ color: "#fff" }}>Como funciona hoje:</strong> todo cadastro recebe acesso completo à
+          plataforma. O superadmin gerencia tenants, IA e impersonação em{" "}
+          <span style={{ color: CORAL }}>Admin → Tenants</span>. Modelo comercial e cobrança ainda em definição.
         </div>
       </div>
     </section>
