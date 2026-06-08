@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChatMock } from "../components/ChatMock";
 import { Label } from "../components/Label";
+import { InstagramLink } from "../components/InstagramLink";
 import { Logo } from "../components/Logo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
@@ -289,6 +290,10 @@ function CTA() {
             </button>
           </div>
         )}
+
+        <div style={{ marginTop: 28, display: "flex", justifyContent: "center" }}>
+          <InstagramLink variant="light" />
+        </div>
       </div>
     </section>
   );

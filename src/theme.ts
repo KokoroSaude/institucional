@@ -23,3 +23,6 @@ export const NAV_ITEMS = [
 /** Portal do parceiro / área logada (defina VITE_LOGIN_URL no .env) */
 export const LOGIN_URL =
   (import.meta.env.VITE_LOGIN_URL as string | undefined)?.trim() || "https://portal.kokorosaude.com.br/login";
+
+export const INSTAGRAM_HANDLE = "kokoro.saude";
+export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;

@@ -1,3 +1,4 @@
+import { InstagramLink } from "./InstagramLink";
 import { Logo } from "./Logo";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { COLORS, FONT_SANS, NAV_ITEMS } from "../theme";
@@ -25,7 +26,7 @@ export function SiteFooter() {
         }}
       >
         <Logo variant="dark" href="/" size="sm" />
-        <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "center" }}>
           {NAV_ITEMS.map((n) => (
             <a
               key={n.href}
@@ -43,6 +44,7 @@ export function SiteFooter() {
               {n.label}
             </a>
           ))}
+          <InstagramLink variant="footer" />
         </div>
         <span style={{ color: "#3a3a3a", fontSize: 12, fontFamily: FONT_SANS }}>
           © 2025 Kokoro · Todos os direitos reservados
