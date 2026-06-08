@@ -27,6 +27,27 @@ export function SiteFooter() {
       >
         <Logo variant="dark" href="/" size="sm" />
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "center" }}>
+          {[
+            { href: "/privacidade", label: "Privacidade" },
+            { href: "/termos", label: "Termos" },
+            { href: "/exclusao-de-dados", label: "Exclusão de dados" },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              style={{
+                color: "#555",
+                textDecoration: "none",
+                fontSize: 13,
+                fontFamily: FONT_SANS,
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#aaa")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#555")}
+            >
+              {link.label}
+            </a>
+          ))}
           {NAV_ITEMS.map((n) => (
             <a
               key={n.href}
@@ -47,7 +68,7 @@ export function SiteFooter() {
           <InstagramLink variant="footer" />
         </div>
         <span style={{ color: "#3a3a3a", fontSize: 12, fontFamily: FONT_SANS }}>
-          © 2025 Kokoro · Todos os direitos reservados
+          © 2026 Kokoro · Todos os direitos reservados
         </span>
       </div>
     </footer>
