@@ -212,19 +212,19 @@
   #s8 .mkt-title{position:absolute;top:clamp(20px,4vw,48px);left:clamp(20px,4vw,52px);font-size:clamp(1.3rem,3vw,2rem);font-weight:900;}
 
   /* ── SLIDE 9: BENCHMARK ── */
-  #s9{padding:clamp(16px,3vw,40px);}
-  #s9 .table{flex:1;display:flex;flex-direction:column;gap:0;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);}
-  #s9 .tr{display:flex;flex:1;}
-  #s9 .th{background:var(--coral);color:#fff;font-weight:800;padding:10px 8px;text-align:center;
+  #s9,#s9a{padding:clamp(16px,3vw,40px);}
+  #s9 .table,#s9a .table{flex:1;display:flex;flex-direction:column;gap:0;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);}
+  #s9 .tr,#s9a .tr{display:flex;flex:1;}
+  #s9 .th,#s9a .th{background:var(--coral);color:#fff;font-weight:800;padding:10px 8px;text-align:center;
     font-size:clamp(.65rem,1.1vw,.82rem);display:flex;align-items:center;justify-content:center;}
-  #s9 .th.feature{background:#F3E4E4;color:var(--coral);text-align:left;justify-content:flex-start;padding-left:14px;}
-  #s9 .td{padding:9px 8px;font-size:clamp(.65rem,1.1vw,.82rem);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #EDD8D8;}
-  #s9 .td.feature{justify-content:flex-start;padding-left:14px;color:var(--dark);background:#fff;}
+  #s9 .th.feature,#s9a .th.feature{background:#F3E4E4;color:var(--coral);text-align:left;justify-content:flex-start;padding-left:14px;}
+  #s9 .td,#s9a .td{padding:9px 8px;font-size:clamp(.65rem,1.1vw,.82rem);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #EDD8D8;}
+  #s9 .td.feature,#s9a .td.feature{justify-content:flex-start;padding-left:14px;color:var(--dark);background:#fff;}
   #s9 .td.kokoro{background:#FDE8E8;}
-  #s9 .tr:nth-child(even) .td{background:#FAF4F4;}
+  #s9 .tr:nth-child(even) .td,#s9a .tr:nth-child(even) .td{background:#FAF4F4;}
   #s9 .tr:nth-child(even) .td.kokoro{background:#FAE0E0;}
-  #s9 .check{color:var(--coral);font-size:1rem;font-weight:900;}
-  #s9 .dash{color:#CCBBBB;}
+  #s9 .check,#s9a .check{color:var(--coral);font-size:1rem;font-weight:900;}
+  #s9 .dash,#s9a .dash{color:#CCBBBB;}
   .col-feat{flex:2.5;} .col-comp{flex:1;}
   .comp-logo{
     width:44px;height:44px;border-radius:10px;background:#fff;
@@ -375,7 +375,7 @@
 
 <div id="nav">
   <button id="btn-prev">&#8592;</button>
-  <span id="counter">1 / 15</span>
+  <span id="counter">1 / 16</span>
   <button id="btn-next">&#8594;</button>
 </div>
 
@@ -403,7 +403,7 @@
   <div class="bar">
     <span style="font-size:.78rem;color:rgba(255,255,255,.6);letter-spacing:.06em;">kokorosaude.com.br</span>
   </div>
-  <span class="slide-num dark-slide">01 / 15</span>
+  <span class="slide-num dark-slide">01 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
@@ -422,7 +422,7 @@
   <div style="position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:.78rem;color:rgba(255,255,255,.5);font-style:italic;">
     Fonte: dados epidemiológicos sobre adesão terapêutica em doenças crônicas
   </div>
-  <span class="slide-num">02 / 15</span>
+  <span class="slide-num">02 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
@@ -446,7 +446,7 @@
       <div class="src">OMS 2019</div>
     </div>
   </div>
-  <span class="slide-num dark-slide">03 / 15</span>
+  <span class="slide-num dark-slide">03 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
@@ -481,11 +481,45 @@
     <div class="mkt-desc">População brasileira adulta<br>com alguma Doença Crônica</div>
     <div class="mkt-source">IBGE 2020</div>
   </div>
-  <span class="slide-num" style="color:rgba(0,0,0,.18);">04 / 15</span>
+  <span class="slide-num" style="color:rgba(0,0,0,.18);">04 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 5: JORNADA -->
+<!-- SLIDE 5: BENCHMARK (concorrentes) -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="slide bg-light flex col" id="s9a">
+  <div style="margin-bottom:clamp(8px,1.5vw,16px);">
+    <div class="t-title t-coral">Benchmark</div>
+  </div>
+  <div class="table">
+    <div class="tr">
+      <div class="th feature col-feat">Funcionalidade</div>
+      <div class="th col-comp" style="background:#F3E4E4;color:var(--coral);flex-direction:column;gap:6px;">
+        <div class="comp-logo"><img src="/pitch/competitors/rd-saude.png" alt="RD Saúde"></div>
+        <span>RDsaúde</span>
+      </div>
+      <div class="th col-comp" style="background:#F3E4E4;color:var(--coral);flex-direction:column;gap:6px;">
+        <div class="comp-logo"><img src="/pitch/competitors/cuco.jpg" alt="CUCO"></div>
+        <span>CUCO</span>
+      </div>
+      <div class="th col-comp" style="background:#F3E4E4;color:var(--coral);flex-direction:column;gap:6px;">
+        <div class="comp-logo"><img src="/pitch/competitors/medisafe.webp" alt="Medisafe"></div>
+        <span>Medisafe</span>
+      </div>
+      <div class="th col-comp" style="background:#F3E4E4;color:var(--coral);flex-direction:column;gap:6px;">
+        <div class="comp-logo"><img src="/pitch/competitors/mytherapy.webp" alt="MyTherapy"></div>
+        <span>MyTherapy</span>
+      </div>
+    </div>
+    <div class="tr"><div class="td feature col-feat">Lembretes horário de tomada</div><div class="td col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="check">✓</span></div></div>
+    <div class="tr"><div class="td feature col-feat">Registro de sintomas</div><div class="td col-comp"><span class="dash">—</span></div><div class="td col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="check">✓</span></div></div>
+    <div class="tr"><div class="td feature col-feat">Relatórios personalizados</div><div class="td col-comp"><span class="dash">—</span></div><div class="td col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="check">✓</span></div></div>
+  </div>
+  <span class="slide-num dark-slide">05 / 16</span>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- SLIDE 6: JORNADA -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide bg-light flex col" id="s5">
   <div style="margin-bottom:clamp(12px,2vw,22px);">
@@ -519,11 +553,11 @@
       </div>
     </div>
   </div>
-  <span class="slide-num dark-slide">05 / 15</span>
+  <span class="slide-num dark-slide">06 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 6: BENCHMARK -->
+<!-- SLIDE 7: BENCHMARK & CONCORRENTES -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide bg-light flex col" id="s9">
   <div style="margin-bottom:clamp(8px,1.5vw,16px);">
@@ -570,11 +604,11 @@
     <div class="tr"><div class="td feature col-feat">Nudges personalizados</div><div class="td kokoro col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="dash">—</span></div><div class="td col-comp"><span class="dash">—</span></div><div class="td col-comp"><span class="dash">—</span></div><div class="td col-comp"><span class="dash">—</span></div></div>
     <div class="tr"><div class="td feature col-feat">Integração farmácia / B2B</div><div class="td kokoro col-comp"><span class="check">✓</span></div><div class="td col-comp"><span class="dash">—</span></div><div class="td col-comp"><span class="dash">—</span></div><div class="td col-comp"><span class="dash">—</span></div><div class="td col-comp"><span class="dash">—</span></div></div>
   </div>
-  <span class="slide-num dark-slide">06 / 15</span>
+  <span class="slide-num dark-slide">07 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 7: MODELO DE NEGÓCIOS -->
+<!-- SLIDE 8: MODELO DE NEGÓCIOS -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide bg-light flex col" id="s10">
   <div style="margin-bottom:clamp(8px,1.5vw,16px);">
@@ -633,11 +667,11 @@
     </div>
   </div>
   <div class="footnote">*Preço mensal por farmácia  •  Todos os planos incluem onboarding e suporte</div>
-  <span class="slide-num dark-slide">07 / 15</span>
+  <span class="slide-num dark-slide">08 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 8: TIME -->
+<!-- SLIDE 9: TIME -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide flex col" id="s13">
   <div class="s13-title" style="text-align:center;">
@@ -676,11 +710,11 @@
       </div>
     </div>
   </div>
-  <span class="slide-num dark-slide">08 / 15</span>
+  <span class="slide-num dark-slide">09 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 9: ROADMAP -->
+<!-- SLIDE 10: ROADMAP -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide flex col" id="s12" style="padding:clamp(20px,3.5vw,44px);background:var(--off-white);">
   <div style="margin-bottom:clamp(14px,2.5vw,28px);">
@@ -748,11 +782,11 @@
       </div>
     </div>
   </div>
-  <span class="slide-num dark-slide">09 / 15</span>
+  <span class="slide-num dark-slide">10 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 10: FECHAMENTO + QR CODES -->
+<!-- SLIDE 11: FECHAMENTO + QR CODES -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide flex col center" id="s16">
   <div class="logo-wrap">
@@ -778,11 +812,11 @@
     </div>
   </div>
   </div>
-  <span class="slide-num" style="color:rgba(255,255,255,.4);">10 / 15</span>
+  <span class="slide-num" style="color:rgba(255,255,255,.4);">11 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 11: MISSÃO -->
+<!-- SLIDE 12: MISSÃO -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide flex" id="s15m" style="flex-direction:row;">
   <div class="mission-photo">
@@ -797,11 +831,11 @@
       Não cuida de medicação,<br>mas de uma vida com mais <strong style="font-weight:800;color:#fff;">saúde</strong>,<br>mais <strong style="font-weight:800;color:#fff;">liberdade</strong><br>e mais <strong style="font-weight:800;color:#fff;">dignidade</strong>
     </div>
   </div>
-  <span class="slide-num" style="color:rgba(255,255,255,.4);">11 / 15</span>
+  <span class="slide-num" style="color:rgba(255,255,255,.4);">12 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 12: VITÓRIA -->
+<!-- SLIDE 13: VITÓRIA -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide bg-light flex" id="s4">
   <div class="left">
@@ -820,11 +854,11 @@
       <span class="name-badge">— Vitória, 34 anos, paciente crônica</span>
     </div>
   </div>
-  <span class="slide-num dark-slide">12 / 15</span>
+  <span class="slide-num dark-slide">13 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 13: LGPD -->
+<!-- SLIDE 14: LGPD -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide flex" id="s14" style="flex-direction:row;overflow:hidden;">
   <!-- left: coral panel -->
@@ -868,11 +902,11 @@
       </div>
     </div>
   </div>
-  <span class="slide-num dark-slide">13 / 15</span>
+  <span class="slide-num dark-slide">14 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 14: DEMO -->
+<!-- SLIDE 15: DEMO -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide flex" id="s6">
   <div class="left">
@@ -894,11 +928,11 @@
       </div>
     </div>
   </div>
-  <span class="slide-num">14 / 15</span>
+  <span class="slide-num">15 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 15: TCP -->
+<!-- SLIDE 16: TCP -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide flex col" id="s7" style="padding:clamp(20px,3.5vw,44px);background:var(--cream);">
   <!-- header -->
@@ -958,11 +992,11 @@
       </div>
     </div>
   </div>
-  <span class="slide-num dark-slide">15 / 15</span>
+  <span class="slide-num dark-slide">16 / 16</span>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
-<!-- SLIDE 16: FINANCEIRO (apêndice) -->
+<!-- SLIDE 17: FINANCEIRO (apêndice) -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="slide bg-light flex col" id="s11">
   <div style="margin-bottom:clamp(8px,1.5vw,14px);">
@@ -1078,7 +1112,7 @@
       </svg>
     </div>
   </div>
-  <span class="slide-num dark-slide">16 / 16</span>
+  <span class="slide-num dark-slide">17 / 17</span>
 </div>
 </div><!-- /deck -->
 
